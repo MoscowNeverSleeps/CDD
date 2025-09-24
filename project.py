@@ -98,6 +98,8 @@ def update_table(n_clicks, inn):
 
     return columns, data_records, company_info, f"Выбран ИНН: {inn}"
 
+server = app.server
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run_server(debug=True)
+
