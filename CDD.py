@@ -21,7 +21,9 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY], suppress_cal
 server = app.server
 
 app.layout = dbc.Container([
-    html.H1("Финансовая отчетность", className="text-center my-4"),
+    html.H1("Kontrola", className="text-center my-4"),
+    html.H2("Безопасность сделки — легко", className="text-center my-4"),
+    html.H3("Тестовый ИНН 5906855741", className="text-center my-4"),
 
     # Поле ввода ИНН + кнопка
     dbc.InputGroup([
