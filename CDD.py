@@ -39,26 +39,14 @@ app.layout = dbc.Container([
                 id="finance-table",
                 columns=[],
                 data=[],
-                fixed_columns={'headers': True, 'data': 1},  # 👈 закрепляем первый столбец
-                style_table={
-                    "overflowX": "auto",
-                    "minWidth": "100%",
-                },
-                style_cell={
-                    "textAlign": "center",
-                    "padding": "6px",
-                    "fontFamily": "Arial, sans-serif",
-                    "minWidth": "120px",
-                    "width": "120px",
-                    "maxWidth": "180px",
-                    "whiteSpace": "normal"
-                },
+                fixed_columns={'headers': True, 'data': 1},
+                style_table={"overflowX": "auto", "minWidth": "100%"},
+                style_cell={"textAlign": "center", "padding": "6px", "fontFamily": "Arial, sans-serif"},
                 style_cell_conditional=[
                     {"if": {"column_id": "Показатель"}, "textAlign": "left", "width": "300px"}
                 ],
-                style_header={"backgroundColor": "#e1e1e1", "fontWeight": "bold"},
-            )
-
+                style_header={"backgroundColor": "#e1e1e1", "fontWeight": "bold"}
+            ),
             width=8,
             className="ps-2"  # небольшой отступ слева
         ),
@@ -200,6 +188,4 @@ def update_table(n_clicks, inn):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-
 
