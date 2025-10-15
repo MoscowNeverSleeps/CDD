@@ -1,6 +1,5 @@
 requests
 dash
-dash_bootstrap_components
-dash.dependencies
+dash-bootstrap-components
 pandas
-guvicorn
+gunicorn
