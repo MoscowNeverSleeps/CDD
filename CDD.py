@@ -187,5 +187,6 @@ def update_table(n_clicks, inn):
     selected = html.P(f"Выбран ИНН: {inn}", className="fw-bold text-center")
     return columns, data_records, [company_card], [selected], [ratios_card]
 
-if __name__ == "__main__":
-    app.run(debug=True, port=8050)
+if __name__ == '__main__':
+    app.run_server(debug=True)
+
