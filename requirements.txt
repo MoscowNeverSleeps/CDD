@@ -1,6 +1,6 @@
-dash
-dash-table
-pandas
 requests
-plotly
-gunicorn
+dash
+dash_bootstrap_components
+dash.dependencies
+pandas
+guvicorn
