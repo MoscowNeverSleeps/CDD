@@ -1303,7 +1303,7 @@ TOPBAR = """
   <div class="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
     <!-- ЛОГО + НАЗВАНИЕ -->
     <a href="/" class="flex items-center gap-2 shrink-0">
-      <img src="/static/logo.png" alt="Kontrola" class="h-12 w-12 object-contain" />
+      <img src="/logo.png" alt="Kontrola" class="h-12 w-12 object-contain" />
       <span class="font-extrabold tracking-tight text-lg">Kontrola</span>
     </a>
 
@@ -2359,3 +2359,4 @@ def register_page():
 # -------------- запуск --------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8050, debug=True)
+
