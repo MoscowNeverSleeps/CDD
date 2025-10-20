@@ -1,5 +1,5 @@
+os
 requests
-dash
-dash-bootstrap-components
-pandas
+flask
+re
 gunicorn
