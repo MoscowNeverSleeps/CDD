@@ -1313,7 +1313,7 @@ TOPBAR = """
       <a href="/pricing"  class="hover:text-white">Тарифы</a>
       <a href="/checker"  class="hover:text-white">Проверка ИНН</a>
       <a href="/contacts" class="hover:text-white">Контакты</a>
-      <a href="https://t.me/+SK172iYnnUNhYWNi" target="_blank" class="hover:text-brand transition-colors" title="Telegram">
+      <a href="https://t.me/prvrrln" target="_blank" class="hover:text-brand transition-colors" title="Telegram">
   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24">
     <path d="M9.75 15.02L9.53 18.96c.5 0 .72-.21.98-.47l2.35-2.23 4.87 3.58c.89.5 1.52.24 1.75-.83l3.18-14.92.01-.01c.28-1.31-.47-1.82-1.33-1.5L1.61 9.17c-1.29.5-1.27 1.21-.22 1.53l5.75 1.79 13.34-8.41c.63-.4 1.21-.18.74.25"/>
   </svg>
@@ -1346,7 +1346,7 @@ TOPBAR = """
 FOOT_MINI = """
 <footer class="py-8 text-center text-sm text-slate-400 mt-auto">
   <div class="flex justify-center gap-5 mb-3">
-    <a href="https://t.me/+SK172iYnnUNhYWNi" target="_blank" class="hover:text-brand transition-colors" title="Telegram">
+    <a href="https://t.me/prvrrln" target="_blank" class="hover:text-brand transition-colors" title="Telegram">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24">
         <path d="M9.75 15.02L9.53 18.96c.5 0 .72-.21.98-.47l2.35-2.23 4.87 3.58c.89.5 1.52.24 1.75-.83l3.18-14.92.01-.01c.28-1.31-.47-1.82-1.33-1.5L1.61 9.17c-1.29.5-1.27 1.21-.22 1.53l5.75 1.79 13.34-8.41c.63-.4 1.21-.18.74.25"/>
       </svg>
@@ -2359,5 +2359,6 @@ def register_page():
 # -------------- запуск --------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8050, debug=True)
+
 
 
