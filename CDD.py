@@ -2089,7 +2089,7 @@ def contacts_page():
       <article class="glass rounded-3xl p-6">
         <div class="text-sm text-slate-400">Поддержка</div>
         <h3 class="text-xl font-extrabold mt-1">
-          <a href="https://t.me/+SK172iYnnUNhYWNi" target="_blank" class="underline">@kontrola_support</a>
+          <a href="https://t.me/prvrrln" target="_blank" class="underline">@prvrrln</a>
         </h3>
         <p class="text-slate-300 mt-2">Telegram: помощь и онбординг</p>
       </article>
@@ -2359,4 +2359,5 @@ def register_page():
 # -------------- запуск --------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8050, debug=True)
+
 
