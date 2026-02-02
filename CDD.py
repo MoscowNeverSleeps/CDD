@@ -414,8 +414,8 @@ def update_table(n_clicks, inn):
         "Выручка (2110)": series_by_code("2110"),
         "Чистая прибыль (2400)": series_by_code("2400"),
         "Себестоимость (1300 + 1530)": net_assets,
-        "Дебиторская задолженность (1230)": series_by_code("1230"),
-        "Кредиторская задолженность (1520)": series_by_code("1520"),
+        "Дебит. долг (1230)": series_by_code("1230"),
+        "Кредит. долг (1520)": series_by_code("1520"),
     }
 
     report_store = {
@@ -482,14 +482,14 @@ def download_company_pdf(n_clicks, report):
         s_rev = metrics.get("Выручка (2110)", [])
         s_profit = metrics.get("Чистая прибыль (2400)", [])
         s_na = metrics.get("Себестоимость (1300 + 1530)", [])
-        s_ar = metrics.get("Дебиторская задолженность (1230)", [])
-        s_ap = metrics.get("Кредиторская задолженность (1520)", [])
+        s_ar = metrics.get("Дебит. долг (1230)", [])
+        s_ap = metrics.get("Кредит. долг (1520)", [])
 
         plt.plot(years, s_rev, marker="o", label="Выручка")
         plt.plot(years, s_profit, marker="o", label="Чистая прибыль")
         plt.plot(years, s_na, marker="o", label="Себестоимость")
-        plt.plot(years, s_ar, marker="o", label="Дебиторка")
-        plt.plot(years, s_ap, marker="o", label="Кредиторка")
+        plt.plot(years, s_ar, marker="o", label="Дебит. долг")
+        plt.plot(years, s_ap, marker="o", label="Кредит. долг")
 
         max_val = 0
         for s in (s_rev, s_profit, s_na, s_ar, s_ap):
