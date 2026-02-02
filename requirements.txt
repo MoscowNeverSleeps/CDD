@@ -1,5 +1,8 @@
-requests
 dash
-dash_bootstrap_components
+dash-bootstrap-components
 pandas
+requests
+matplotlib
+reportlab
+pypdf
 gunicorn
