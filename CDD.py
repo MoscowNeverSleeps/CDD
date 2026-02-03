@@ -407,7 +407,7 @@ def update_table(n_clicks, inn):
 
     net_assets = []
     for y in last5:
-        net_assets.append(val("1300", y) - val("1530", y) - val("1170", y))
+        net_assets.append(val("1300", y) + val("1530", y))
 
     metrics = {
         "years": last5,
@@ -673,3 +673,4 @@ def download_company_pdf(n_clicks, report):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
