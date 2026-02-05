@@ -324,7 +324,7 @@ def update_table(n_clicks, inn):
         formula = RATIO_FORMULAS.get(k, "Формула не задана")
         rows.append(
             html.Tr([
-                html.Td(k, title=f"Формула расчёта:\n{formula}", style={"textAlign": "left", "cursor": "help"}),
+                html.Td(k, title=f"{formula}", style={"textAlign": "left", "cursor": "help"}),
                 html.Td(fmt(ratios_cur.get(k, 0)), style={"textAlign": "center"}),
                 html.Td(fmt(ratios_prev.get(k, 0)), style={"textAlign": "center"}),
             ])
@@ -673,5 +673,6 @@ def download_company_pdf(n_clicks, report):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
