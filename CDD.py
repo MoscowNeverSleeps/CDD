@@ -46,35 +46,56 @@ app = dash.Dash(
 server = app.server
 
 app.layout = dbc.Container([
-    html.H1("Безопасность сделки — легко", className="text-center my-4"),
-    html.H4("test 7721546864", className="text-center my-4"),
+    # Header
+    html.H1("Безопасность сделки — легко", className="text-center my-3 my-md-4"),
+    html.H4("test 5906855741", className="text-center mb-3 mb-md-4"),
 
-    dbc.InputGroup([
-        dbc.InputGroupText("Введите ИНН:"),
-        dbc.Input(id="inn-input", type="text", placeholder="10 цифр"),
-        dbc.Button("Загрузить", id="load-button", n_clicks=0, color="primary")
-    ], className="mb-4"),
+    # Input (mobile-friendly: centered and full width on phones)
+    dbc.Row([
+        dbc.Col(
+            dbc.InputGroup([
+                dbc.InputGroupText("Введите ИНН:"),
+                dbc.Input(id="inn-input", type="text", placeholder="10 цифр"),
+                dbc.Button("Загрузить", id="load-button", n_clicks=0, color="primary")
+            ]),
+            xs=12, md=8, lg=6
+        )
+    ], className="mb-3 justify-content-center"),
 
     html.Div(id="company-info"),
 
     dcc.Store(id="report-store"),
     dcc.Download(id="download-company-pdf"),
 
+    # IMPORTANT: ratios block goes FIRST (above бухгалтерская отчетность)
     dbc.Row([
         dbc.Col(
             html.Div(id="ratios-output"),
-            width=4,
-            className="ps-2"
+            xs=12
         ),
+    ], className="mt-2"),
 
+    # Бухгалтерская отчетность (DataTable) goes ниже коэффициентов
+    dbc.Row([
         dbc.Col(
             dash_table.DataTable(
                 id="finance-table",
                 columns=[],
                 data=[],
                 fixed_columns={'headers': True, 'data': 1},
-                style_table={"overflowX": "auto", "minWidth": "100%"},
-                style_cell={"textAlign": "center", "padding": "6px", "fontFamily": "Arial, sans-serif"},
+                style_table={
+                    "overflowX": "auto",
+                    "minWidth": "100%",
+                    # Helps on mobile: allow horizontal scroll without squeezing
+                    "maxWidth": "100%",
+                },
+                style_cell={
+                    "textAlign": "center",
+                    "padding": "6px",
+                    "fontFamily": "Arial, sans-serif",
+                    # Slightly smaller base font improves fit on phones
+                    "fontSize": "13px",
+                },
                 style_data={"whiteSpace": "normal", "height": "auto", "lineHeight": "15px"},
                 style_cell_conditional=[
                     {
@@ -94,14 +115,12 @@ app.layout = dbc.Container([
                 ],
                 style_header={"backgroundColor": "#e1e1e1", "fontWeight": "bold"}
             ),
-            width=8,
-            className="pe-2"
-        )
-    ], className="mt-4"),
+            xs=12
+        ),
+    ], className="mt-3"),
 
     html.Div(id="selected-inn", className="mt-3 text-center fw-bold")
-], fluid=True)
-
+], fluid=True, className="px-2 px-md-4")
 RATIO_FORMULAS = {
     "Коэффициент финансовой устойчивости":"Доля стабильных источников финансирования активов \n(1300 + 1400) / 1700",
     "Коэффициент автономии":"Степень независимости компании от заемного капитала \n1300 / 1600",
@@ -123,6 +142,7 @@ RATIO_FORMULAS = {
     "Тип финансовой устойчивости":"Определяет общее состояние структуры капитала предприятия \nСравнение запасов с источниками формирования"
 
 }
+
 
 @app.callback(
     Output("finance-table", "columns"),
@@ -460,12 +480,6 @@ def download_company_pdf(n_clicks, report):
     system_font = r"C:\Windows\Fonts\times.ttf"
 
     font_path = local_font if os.path.exists(local_font) else system_font
-    if not os.path.exists(font_path):
-        raise FileNotFoundError(
-            f'Не найден "Times New Roman.ttf".\n'
-            f'Положи файл рядом с {os.path.basename(__file__)}: {local_font}\n'
-            f'или проверь системный: {system_font}'
-        )
 
     try:
         pdfmetrics.getFont("TNR")
@@ -673,6 +687,3 @@ def download_company_pdf(n_clicks, report):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
