@@ -46,11 +46,9 @@ app = dash.Dash(
 server = app.server
 
 app.layout = dbc.Container([
-    # Header
     html.H1("Безопасность сделки — легко", className="text-center my-3 my-md-4"),
     html.H4("test 5906855741", className="text-center mb-3 mb-md-4"),
 
-    # Input (mobile-friendly: centered and full width on phones)
     dbc.Row([
         dbc.Col(
             dbc.InputGroup([
@@ -67,7 +65,6 @@ app.layout = dbc.Container([
     dcc.Store(id="report-store"),
     dcc.Download(id="download-company-pdf"),
 
-    # IMPORTANT: ratios block goes FIRST (above бухгалтерская отчетность)
     dbc.Row([
         dbc.Col(
             html.Div(id="ratios-output"),
@@ -75,7 +72,6 @@ app.layout = dbc.Container([
         ),
     ], className="mt-2"),
 
-    # Бухгалтерская отчетность (DataTable) goes ниже коэффициентов
     dbc.Row([
         dbc.Col(
             dash_table.DataTable(
@@ -86,14 +82,12 @@ app.layout = dbc.Container([
                 style_table={
                     "overflowX": "auto",
                     "minWidth": "100%",
-                    # Helps on mobile: allow horizontal scroll without squeezing
                     "maxWidth": "100%",
                 },
                 style_cell={
                     "textAlign": "center",
                     "padding": "6px",
                     "fontFamily": "Arial, sans-serif",
-                    # Slightly smaller base font improves fit on phones
                     "fontSize": "13px",
                 },
                 style_data={"whiteSpace": "normal", "height": "auto", "lineHeight": "15px"},
